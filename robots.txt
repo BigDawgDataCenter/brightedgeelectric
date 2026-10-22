@@ -1,0 +1,3 @@
+# Private preview: keep search engines out until launch
+User-agent: *
+Disallow: /
