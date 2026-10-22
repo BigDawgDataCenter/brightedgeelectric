@@ -226,6 +226,7 @@ textarea{min-height:110px;resize:vertical}
 .nav-btns{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
 .nav-btns .btn{padding:13px 22px}
 .fine{font-size:13px;color:var(--muted);text-align:center;margin:12px 0 0}
+.err{background:#fde8e6;color:#9b2c1f;border-radius:12px;padding:10px 12px;font-weight:600;font-size:15px;margin:12px 0 0}
 .sent{text-align:center;padding:24px 6px}
 .sent .ic{width:68px;height:68px;border-radius:50%;background:var(--gold);display:grid;place-items:center;margin:0 auto 16px;color:var(--ink)}
 
@@ -526,13 +527,15 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
       <div class="field"><label for="hear">How did you hear about us?</label>
         <select id="hear" name="heard"><option value="">Choose one</option><option>Google</option><option>AI assistant (ChatGPT, Gemini…)</option><option>Yelp</option><option>Instagram / Facebook</option><option>Nextdoor</option><option>Friend or neighbor</option><option>Saw the truck</option><option>Other</option></select></div>
       <div class="nav-btns"><button type="button" class="btn btn-line" data-back>Back</button><button type="submit" class="btn btn-gold">Send my request</button></div>
-      <p class="fine">You’ll hear back from Tyler directly. No spam, ever.</p>
+      <input type="text" name="website" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <p class="err" id="sendErr" role="alert" hidden></p>
+      <p class="fine">You’ll hear back from Tyler directly. Your details are only used to answer your request, never sold or shared.</p>
     </div>
 
     <div class="wstep" data-step="5">
       <div class="sent"><div class="ic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m5 12 5 5L20 7"/></svg></div>
         <h3>Request received!</h3><p style="color:var(--muted)" id="sentText">Thanks! Tyler will reach out soon.</p>
-        <p class="fine">(Preview: on the live site this lands in Ty’s inbox and BDDC’s lead tracker, with an instant alert.)</p></div>
+        <p class="fine">Need it sooner? Call <a href="tel:+12534293605">(253) 429-3605</a>.</p></div>
     </div>
   </form>
 </div></section>
@@ -606,12 +609,37 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
     a.addEventListener('click', function () { pickType(a.dataset.type, a.dataset.svc); go(3); });
   });
   // Preview only: show the thank-you instead of sending anything
+  // Send the request to Bright Edge HQ (Tyler's app), photos included
+  var HQ = 'https://hq.bigdaddydatacenter.com/api/leads';
   wiz.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = document.getElementById('fn').value.trim();
-    document.getElementById('sentText').textContent = 'Thanks' + (name ? ', ' + name : '') + '! Tyler will ' +
-      ({Call: 'call', Text: 'text', Email: 'email'}[state.contact] || 'reach out to') + ' you soon about your ' + (state.service || 'project').toLowerCase() + '.';
-    go(5);
+    var err = document.getElementById('sendErr'), btn = wiz.querySelector('button[type=submit]');
+    var val = function (id) { return document.getElementById(id).value.trim(); };
+    var name = val('fn');
+    err.hidden = true;
+    if (!name || (val('ph').replace(/\D/g, '').length < 10 && !val('em'))) {
+      err.textContent = 'Please add your first name and a phone number or email so Tyler can reach you.';
+      err.hidden = false; return;
+    }
+    var fd = new FormData();
+    fd.append('first', name); fd.append('last', val('ln')); fd.append('phone', val('ph')); fd.append('email', val('em'));
+    fd.append('contact', state.contact || ''); fd.append('kind', state.type || ''); fd.append('service', state.service || '');
+    fd.append('details', val('msg')); fd.append('location', val('loc')); fd.append('timeline', val('when'));
+    fd.append('heard', val('hear')); fd.append('website', val('hp'));
+    var files = document.getElementById('photos').files;
+    for (var i = 0; i < files.length && i < 6; i++) fd.append('photos', files[i]);
+    btn.disabled = true; btn.textContent = files.length ? 'Sending photos…' : 'Sending…';
+    fetch(HQ, {method: 'POST', body: fd}).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || !j.ok) throw new Error(j.error || 'send'); });
+    }).then(function () {
+      document.getElementById('sentText').textContent = 'Thanks, ' + name + '! Tyler will ' +
+        ({Call: 'call', Text: 'text', Email: 'email'}[state.contact] || 'reach out to') + ' you soon about your ' + (state.service || 'project').toLowerCase() + '.';
+      go(5);
+    }).catch(function (x) {
+      err.textContent = (x && x.message && x.message !== 'send' ? x.message + ' ' : 'Something went wrong sending your request. ') +
+        'You can also call or text (253) 429-3605.';
+      err.hidden = false;
+    }).then(function () { btn.disabled = false; btn.textContent = 'Send my request'; });
   });
 })();
 </script>
