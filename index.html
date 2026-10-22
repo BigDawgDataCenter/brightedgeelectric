@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bright Edge Electric | Master Electrician · King &amp; Snohomish County</title>
-<meta name="description" content="Bright Edge Electric LLC: licensed master electrician for homes and small businesses across King and Snohomish County, WA. Panel and service upgrades, lighting, troubleshooting, tenant improvements. Licensed, bonded and insured. Free estimates. Open 7 days.">
+<meta name="description" content="Bright Edge Electric LLC: licensed master electrician for homes and small businesses across King and Snohomish County, WA. Panel and service upgrades, lighting, troubleshooting, tenant improvements. Free estimates. Open 7 days, 8 AM to 8 PM.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#044B76">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
@@ -17,6 +17,7 @@
  "email":"info@brightedgeelectric.com","url":"https://www.brightedgeelectric.com/","image":"assets/icon-512.png",
  "areaServed":[{"@type":"AdministrativeArea","name":"King County, WA"},{"@type":"AdministrativeArea","name":"Snohomish County, WA"}],
  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"20:00"}],
+ "founder":{"@type":"Person","name":"Tyler Koch","jobTitle":"Owner & Master Electrician"},
  "sameAs":["https://www.instagram.com/brightedgeelectric","https://www.facebook.com/share/1AqopaQsct/","https://share.google/fxkkFDbRHWmGJxpIm"]}
 </script>
 <style>
@@ -121,6 +122,15 @@ section{padding:92px 0}
 .svc.feature{background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-color:transparent}
 .svc.feature h3{color:#fff}.svc.feature p{color:#c5d5e2}.svc.feature .ic{background:var(--gold);color:var(--ink)}.svc.feature a{color:var(--gold)}
 .note{font-size:15px;color:var(--muted);margin-top:22px}
+
+/* How it works */
+.how{padding-top:0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;
+  background:var(--navy);color:var(--gold);font:800 22px Kanit,sans-serif;margin-bottom:14px}
+.step h3{font-size:21px;margin-bottom:6px}.step p{margin:0;color:var(--muted);font-size:16px}
+@media (max-width:980px){.steps{grid-template-columns:1fr}}
 
 /* Mission */
 .mission{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -255,7 +265,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   .reviews{padding:26px}
   .wizard{padding:22px}
   footer .wrap{grid-template-columns:1fr}
-  .callbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  .callbar{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
     background:rgba(2,31,51,.96);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.1)}
   .callbar .btn{justify-content:center;padding:13px 10px;font-size:15px}
 }
@@ -267,7 +277,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
 <div class="preview"><b>Private preview</b> · a prototype by Chuck &amp; Big Dawg Data Center. Not the live site. Spots marked “add” are waiting on your info.</div>
 
 <div class="topbar"><div class="wrap">
-  <span><i class="dot"></i> Licensed, bonded &amp; insured · Master electrician</span>
+  <span><i class="dot"></i> Licensed WA electrical contractor · Master electrician</span>
   <span class="hide-sm"><i class="dot"></i> King &amp; Snohomish County · Open 7 days, 8 AM to 8 PM</span>
 </div></div>
 
@@ -287,7 +297,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
 <main id="top">
 <section class="hero" style="padding:0"><div class="wrap">
   <div>
-    <span class="eyebrow">⚡ King &amp; Snohomish County · Free estimates</span>
+    <span class="eyebrow">⚡ Open evenings &amp; weekends · King &amp; Snohomish County</span>
     <h1>Electrical work held to a <em>higher standard.</em></h1>
     <p class="lede">Bright Edge Electric is a family-run electrical contractor led by a licensed master electrician. Careful, code-perfect work for homeowners and small businesses who care how the job is done.</p>
     <div class="ctas">
@@ -297,7 +307,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
     </div>
     <div class="trust">
       <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 22l5-3 5 3-1.5-9.5"/></svg><span><b>Master</b>electrician</span></div>
-      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg><span><b>Licensed</b>bonded &amp; insured</span></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg><span><b>Licensed</b>WA electrical contractor</span></div>
       <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>10+ years</b>in the trade</span></div>
       <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg><span><b>Family-run</b>local business</span></div>
     </div>
@@ -308,7 +318,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
     <h3>Talk to the owner, not a call center.</h3>
     <p>Tell us about your project and you’ll hear back from Tyler himself with a clear, free estimate.</p>
     <div class="hours">
-      <div>Monday to Sunday <span>8 AM to 8 PM</span></div>
+      <div>Every day, evenings too <span>8 AM to 8 PM</span></div>
       <div>Estimates <span>Always free</span></div>
       <div>Service area <span>King &amp; Snohomish</span></div>
     </div>
@@ -363,6 +373,16 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   <p class="note">💡 A <b>service upgrade</b> means increasing the electrical capacity that feeds your building, for example when adding big new loads.</p>
 </div></section>
 
+<section class="how"><div class="wrap">
+  <div class="section-head center" style="text-align:center"><div class="kicker">How it works</div><h2>Simple, start to finish</h2>
+    <p style="margin:0 auto">A clear process, no surprises. That’s the “structure” we promise.</p></div>
+  <div class="steps">
+    <div class="step"><h3>Send a photo</h3><p>Start an estimate and snap your panel or the space. Seeing it first means Tyler shows up with the right parts.</p></div>
+    <div class="step"><h3>Get a clear estimate</h3><p>An upfront, written price from the master electrician who does the work. add: Ty’s response time (e.g. within 1 business day).</p></div>
+    <div class="step"><h3>Done right, to code</h3><p>Careful work, inspected where required, and a clean space when we leave. add: confirm permits + utility coordination (PSE, Seattle City Light, Snohomish PUD).</p></div>
+  </div>
+</div></section>
+
 <section class="mission" id="mission"><div class="wrap">
   <div>
     <div class="kicker">Our promise</div>
@@ -388,7 +408,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
     <p style="color:var(--muted)">add: a sentence or two on why Ty started Bright Edge Electric.</p>
     <ul class="checks">
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L20 7"/></svg>Licensed master electrician</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L20 7"/></svg>Licensed, bonded &amp; insured</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L20 7"/></svg>Licensed WA electrical contractor</li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L20 7"/></svg>10+ years experience</li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L20 7"/></svg>Free, upfront estimates</li>
     </ul>
@@ -444,7 +464,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
     <details open><summary>Are estimates really free?</summary><p>Yes. Tell us about your project (photos help) and you’ll get a clear, free estimate.</p></details>
     <details><summary>What are your hours?</summary><p>We’re available Monday through Sunday, 8 AM to 8 PM.</p></details>
     <details><summary>Do you offer emergency service?</summary><p>Not at this time. For a power outage, contact your utility; if there’s smoke, sparks or any immediate danger, call 911 first.</p></details>
-    <details><summary>Are you licensed, bonded and insured?</summary><p>Yes. Bright Edge Electric LLC is licensed, bonded and insured, and the owner is a licensed master electrician. (add: WA license number)</p></details>
+    <details><summary>Are you licensed?</summary><p>Yes. Bright Edge Electric LLC is a licensed Washington electrical contractor (WA L&amp;I license #: add), and the owner is a licensed master electrician. You can check any contractor’s license on the <a href="https://secure.lni.wa.gov/verify/" target="_blank" rel="noopener">WA L&amp;I Verify tool</a>. (add: liability insurance amount)</p></details>
     <details><summary>Do you work on homes and businesses?</summary><p>Both: single-family homes and small commercial businesses across King and Snohomish County.</p></details>
     <details><summary>What’s a “service upgrade”?</summary><p>It means increasing the electrical capacity supplying power to your building, often needed when adding large new loads.</p></details>
   </div>
@@ -457,6 +477,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
     <p class="lede">A few quick taps and your request goes straight to Tyler. Photos help us give you an accurate estimate faster.</p>
     <ul class="contact-list">
       <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><a href="tel:+12534293605">(253) 429-3605</a></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><a href="sms:+12534293605">Text a photo of the job</a></li>
       <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span><a href="mailto:info@brightedgeelectric.com">info@brightedgeelectric.com</a></li>
       <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="t">Every day, 8 AM to 8 PM</span></li>
     </ul>
@@ -502,7 +523,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
       </div>
       <div class="field"><label>Best way to reach you</label><div class="pills" id="contactPills"><button type="button" class="pill picked">Call</button><button type="button" class="pill">Text</button><button type="button" class="pill">Email</button></div></div>
       <div class="field"><label for="hear">How did you hear about us?</label>
-        <select id="hear" name="heard"><option value="">Choose one</option><option>Google</option><option>Instagram / Facebook</option><option>Nextdoor</option><option>Friend or neighbor</option><option>Saw the truck</option><option>Other</option></select></div>
+        <select id="hear" name="heard"><option value="">Choose one</option><option>Google</option><option>AI assistant (ChatGPT, Gemini…)</option><option>Yelp</option><option>Instagram / Facebook</option><option>Nextdoor</option><option>Friend or neighbor</option><option>Saw the truck</option><option>Other</option></select></div>
       <div class="nav-btns"><button type="button" class="btn btn-line" data-back>Back</button><button type="submit" class="btn btn-gold">Send my request</button></div>
       <p class="fine">You’ll hear back from Tyler directly. No spam, ever.</p>
     </div>
@@ -519,14 +540,14 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
 <footer><div class="wrap">
   <div><img src="assets/logo-horizontal-white.svg" alt="Bright Edge Electric" style="height:40px;width:auto">
     <p style="margin:14px 0 0">Family-run electrical contractor serving King &amp; Snohomish County, Washington.</p>
-    <span class="lic">WA license #: add</span></div>
+    <span class="lic">WA L&amp;I license #: add</span></div>
   <div><h4>Contact</h4><ul><li><a href="tel:+12534293605">(253) 429-3605</a></li><li><a href="mailto:info@brightedgeelectric.com">info@brightedgeelectric.com</a></li><li>Every day, 8 AM to 8 PM</li></ul></div>
   <div><h4>Services</h4><ul><li><a href="#services" data-tab="res">Residential</a></li><li><a href="#services" data-tab="com">Commercial</a></li><li><a href="#quote">Free estimate</a></li></ul></div>
   <div><h4>Follow</h4><ul><li><a href="https://share.google/fxkkFDbRHWmGJxpIm" target="_blank" rel="noopener">Google reviews</a></li><li><a href="https://www.instagram.com/brightedgeelectric" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/share/1AqopaQsct/" target="_blank" rel="noopener">Facebook</a></li></ul></div>
-  <div class="legal"><span>© 2026 Bright Edge Electric LLC · Licensed, bonded &amp; insured</span><span>Privacy · Accessibility</span></div>
+  <div class="legal"><span>© 2026 Bright Edge Electric LLC · WA L&amp;I electrical contractor license #: add · <a href="https://secure.lni.wa.gov/verify/" target="_blank" rel="noopener">Verify</a></span><span>Privacy · Accessibility</span></div>
 </div></footer>
 
-<div class="callbar"><a class="btn btn-ghost" href="tel:+12534293605">📞 Call now</a><a class="btn btn-gold" href="#quote">Free estimate</a></div>
+<div class="callbar"><a class="btn btn-ghost" href="tel:+12534293605">📞 Call</a><a class="btn btn-ghost" href="sms:+12534293605">💬 Text</a><a class="btn btn-gold" href="#quote">Estimate</a></div>
 
 <script>
 (function () {
