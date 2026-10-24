@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Accessibility Statement | Bright Edge Electric</title>
 <meta name="description" content="Accessibility Statement for Bright Edge Electric LLC.">
 <meta name="robots" content="noindex">
@@ -90,12 +90,27 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   section{padding:64px 0}
   footer .wrap{grid-template-columns:1fr}
   .callbar{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
-    background:rgba(2,31,51,.96);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.1)}
+    background:rgba(2,31,51,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.1)}
   .callbar .btn{justify-content:center;padding:13px 10px;font-size:15px}
   .content-page { padding: 40px 20px; }
   .content-page h1 { font-size: 28px; }
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* Phones and browsers (Oct 24 review): iPhone notch/home bar, no stuck hover on touch, menu jumps clear the header, 44px taps */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+[id]{scroll-margin-top:90px}
+a,button,summary,label{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+footer{padding-bottom:52px}
+@media (hover:none){.btn:hover,.svc:hover{transform:none}}
+@media (max-width:640px){
+  .wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+  [id]{scroll-margin-top:76px}
+  footer{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
+  .head-cta .phone{width:44px;height:44px;justify-content:center}
+  footer ul{gap:0}
+  footer li a{display:inline-block;padding:10px 0}
+}{*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
@@ -142,7 +157,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   <div class="legal"><span>© 2026 Bright Edge Electric LLC · WA L&amp;I electrical contractor license #BRIGHEE741DC · <a href="https://secure.lni.wa.gov/verify/" target="_blank" rel="noopener">Verify</a></span><span><a href="privacy.html">Privacy</a> · <a href="accessibility.html">Accessibility</a></span></div>
 </div></footer>
 
-<div class="callbar"><a class="btn btn-ghost" href="tel:+12534293605">📞 Call</a><a class="btn btn-ghost" href="sms:+12534293605">💬 Text</a><a class="btn btn-gold" href="index.html#quote">Request</a></div>
+<div class="callbar"><a class="btn btn-ghost" href="tel:+12534293605">📞 Call</a><a class="btn btn-ghost" href="sms:+12534293605">💬 Text</a><a class="btn btn-gold" href="index.html#quote">Estimate</a></div>
 
 </body>
 </html>

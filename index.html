@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bright Edge Electric | Master Electrician · King &amp; Snohomish County</title>
 <meta name="description" content="Bright Edge Electric LLC: Licensed WA Electrical Contractor and Master Electrician for homes and small businesses in Snohomish &amp; King County. Panel and service upgrades, lighting, troubleshooting, tenant improvements. Free estimates. Open Mon-Sun, 8AM-8PM.">
 <meta name="robots" content="noindex">
@@ -76,7 +76,7 @@ nav.links a:hover{color:var(--gold)}
 .trust svg{width:22px;height:22px;color:var(--gold);flex:none}
 .trust b{display:block;color:#fff;font-family:Kanit,sans-serif;font-size:18px;font-weight:600;line-height:1.2}
 .hero-card{position:relative;border-radius:28px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:34px;
-  box-shadow:0 40px 80px -30px rgba(0,0,0,.6);backdrop-filter:blur(4px)}
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .hero-card .mark{width:110px;margin-bottom:22px}
 .hero-card h3{color:#fff;font-size:26px;font-weight:700;margin-bottom:8px}
 .hero-card p{color:#c9d9e6;margin:0 0 20px}
@@ -105,8 +105,8 @@ section{padding:92px 0}
 
 /* Services with Residential / Commercial switch */
 .switch{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px;margin-bottom:30px;box-shadow:0 6px 18px -12px rgba(3,48,77,.4)}
-.switch button{font:700 16px Figtree,sans-serif;border:0;background:none;padding:12px 22px;border-radius:999px;cursor:pointer;color:var(--muted);display:inline-flex;gap:8px;align-items:center}
-.switch button[aria-selected="true"]{background:var(--navy);color:#fff}
+.switch button{font:700 16px Figtree,sans-serif;border:0;background:none;padding:12px 22px;min-height:44px;border-radius:999px;cursor:pointer;color:var(--muted);display:inline-flex;gap:8px;align-items:center}
+.switch button[aria-pressed="true"]{background:var(--navy);color:#fff}
 .switch svg{width:18px;height:18px}
 .svc-panel{display:none}.svc-panel.on{display:grid}
 .grid3{grid-template-columns:repeat(3,1fr);gap:20px}
@@ -116,7 +116,7 @@ section{padding:92px 0}
 .svc .ic svg{width:27px;height:27px}
 .svc h3{font-size:21px;font-weight:600;margin-bottom:6px}
 .svc p{color:var(--muted);margin:0 0 16px;flex:1;font-size:16px}
-.svc a{font-weight:700;color:var(--navy);text-decoration:none;font-size:15px}
+.svc a{font-weight:700;color:var(--navy);text-decoration:none;font-size:15px;display:inline-block;padding:10px 0;margin:-10px 0}
 .svc a:hover{color:var(--gold-deep)}
 .svc.feature{background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-color:transparent}
 .svc.feature h3{color:#fff}.svc.feature p{color:#c5d5e2}.svc.feature .ic{background:var(--gold);color:var(--ink)}.svc.feature a{color:var(--gold)}
@@ -139,7 +139,7 @@ section{padding:92px 0}
 .v{padding:18px;border-radius:14px;background:var(--paper);border:1px solid var(--line)}
 .v b{display:block;font-family:Kanit,sans-serif;font-size:19px;color:var(--navy);font-weight:600;margin-bottom:2px}
 .v span{font-size:15px;color:var(--muted)}
-.draft{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep);border:1px dashed var(--gold-deep);border-radius:999px;padding:4px 10px}
+.draft{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8a5a00;border:1px dashed #b07800;border-radius:999px;padding:4px 10px}
 
 /* About */
 .about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
@@ -192,6 +192,7 @@ details p{margin:0 0 20px;color:var(--muted)}
 .quote p.lede{color:#c5d5e2;font-size:18px}
 .contact-list{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px}
 .contact-list a,.contact-list span.t{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+.contact-list a{display:inline-flex;align-items:center;min-height:44px}
 .contact-list li{display:flex;gap:12px;align-items:center}
 .contact-list .ic{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.1);display:grid;place-items:center;color:var(--gold);flex:none}
 .contact-list svg{width:20px;height:20px}
@@ -220,7 +221,13 @@ input,select,textarea{width:100%;font:inherit;font-size:16px;border:1.5px solid 
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 4px rgba(4,75,118,.12);background:#fff}
 textarea{min-height:110px;resize:vertical}
 .drop{border:2px dashed var(--line);border-radius:14px;padding:18px;text-align:center;color:var(--muted);font-size:15px;background:var(--paper);cursor:pointer;display:block}
-.drop input{display:none}
+.drop{position:relative}
+.drop:focus-within{border-color:var(--navy)}
+/* Invisible but tappable over the whole box (a display:none file input isn't reachable by keyboard) */
+.drop input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;padding:0}
+select{-webkit-appearance:none;appearance:none;padding-right:42px;cursor:pointer}
+select,select:focus{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23044b76' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:18px}
 .nav-btns{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
 .nav-btns .btn{padding:13px 22px}
 .fine{font-size:13px;color:var(--muted);text-align:center;margin:12px 0 0}
@@ -258,6 +265,8 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   .hero .wrap{padding-top:36px;padding-bottom:56px;gap:30px}
   .hero p.lede{font-size:17px}
   .hero-card{padding:24px}
+  .hero-card .mark{width:72px;margin-bottom:16px}
+  .hours div{flex-direction:column;gap:2px}.hours span{text-align:left}
   section{padding:64px 0}
   .switch{display:flex}.switch button{flex:1;justify-content:center;padding:12px 10px}
   .grid3,.gallery,.row,.checks,.vgrid,.choices{grid-template-columns:1fr}
@@ -265,10 +274,25 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   .wizard{padding:22px}
   footer .wrap{grid-template-columns:1fr}
   .callbar{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
-    background:rgba(2,31,51,.96);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.1)}
+    background:rgba(2,31,51,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.1)}
   .callbar .btn{justify-content:center;padding:13px 10px;font-size:15px}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* Phones and browsers (Oct 24 review): iPhone notch/home bar, no stuck hover on touch, menu jumps clear the header, 44px taps */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+[id]{scroll-margin-top:90px}
+a,button,summary,label{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+footer{padding-bottom:52px}
+@media (hover:none){.btn:hover,.svc:hover{transform:none}}
+@media (max-width:640px){
+  .wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+  [id]{scroll-margin-top:76px}
+  footer{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
+  .head-cta .phone{width:44px;height:44px;justify-content:center}
+  footer ul{gap:0}
+  footer li a{display:inline-block;padding:10px 0}
+}{*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
@@ -319,7 +343,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   </div>
 </div></section>
 
-<div class="values" aria-label="Our values"><div class="track">
+<div class="values" aria-hidden="true"><div class="track">
   <span>Excellence</span><span>Professionalism</span><span>Reliability</span><span>Attention to detail</span><span>Safety</span><span>Structure</span>
   <span>Excellence</span><span>Professionalism</span><span>Reliability</span><span>Attention to detail</span><span>Safety</span><span>Structure</span>
 </div></div>
@@ -330,9 +354,9 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
     <h2>Homes and businesses, done right</h2>
     <p>Pick which one fits you. Not sure? Send a request and we’ll sort it out together.</p>
   </div>
-  <div class="switch" role="tablist">
-    <button role="tab" aria-selected="true" data-panel="res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg>Residential</button>
-    <button role="tab" aria-selected="false" data-panel="com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M8 7V4h8v3"/></svg>Commercial</button>
+  <div class="switch" role="group" aria-label="Show services for">
+    <button type="button" aria-pressed="true" data-panel="res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg>Residential</button>
+    <button type="button" aria-pressed="false" data-panel="com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M8 7V4h8v3"/></svg>Commercial</button>
   </div>
 
   <div class="svc-panel grid3 on" id="res">
@@ -549,7 +573,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
 (function () {
   // Residential / Commercial switch
   function showPanel(id) {
-    document.querySelectorAll('.switch button').forEach(function (t) { t.setAttribute('aria-selected', String(t.dataset.panel === id)); });
+    document.querySelectorAll('.switch button').forEach(function (t) { t.setAttribute('aria-pressed', String(t.dataset.panel === id)); });
     document.querySelectorAll('.svc-panel').forEach(function (p) { p.classList.toggle('on', p.id === id); });
   }
   document.querySelectorAll('.switch button').forEach(function (t) { t.addEventListener('click', function () { showPanel(t.dataset.panel); }); });
@@ -562,10 +586,13 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   };
   var state = {type: null, service: null, contact: 'Call'}, step = 1;
   var wiz = document.getElementById('wiz');
-  function go(n) {
+  function go(n, stay) {
     step = n;
     wiz.querySelectorAll('.wstep').forEach(function (s) { s.classList.toggle('on', Number(s.dataset.step) === n); });
     wiz.querySelectorAll('.progress i').forEach(function (bar, i) { bar.classList.toggle('on', i < Math.min(n, 4)); });
+    // On a phone the steps differ in height, so the next one can start above the screen: bring its top back into view
+    var top = wiz.getBoundingClientRect().top;
+    if (!stay && (top < 0 || top > innerHeight * 0.6)) wiz.scrollIntoView({block: 'start'});
   }
   function pickType(type, service) {
     state.type = type;
@@ -590,9 +617,26 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   });
   // Service cards jump into the wizard with the service already picked
   document.querySelectorAll('a[data-svc]').forEach(function (a) {
-    a.addEventListener('click', function () { pickType(a.dataset.type, a.dataset.svc); go(3); });
+    a.addEventListener('click', function () { pickType(a.dataset.type, a.dataset.svc); go(3, true); });
   });
-  // Preview only: show the thank-you instead of sending anything
+  // Phone photos are often 3-8 MB each: shrink them in the browser (longest side 2400 px, same as HQ keeps) so a
+  // request sends quickly on cell data. HQ re-encodes them and strips location data either way. Drawing through an
+  // <img> keeps the photo upright; anything the browser can't open (e.g. HEIC on Android) is sent as it is.
+  function shrink(file) {
+    return new Promise(function (done) {
+      if (!/^image\//.test(file.type) || !window.URL || !document.createElement('canvas').toBlob) return done(file);
+      var url = URL.createObjectURL(file), img = new Image();
+      img.onload = function () {
+        var s = Math.min(1, 2400 / Math.max(img.naturalWidth, img.naturalHeight)), c = document.createElement('canvas');
+        c.width = Math.round(img.naturalWidth * s); c.height = Math.round(img.naturalHeight * s);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        c.toBlob(function (b) { done(b && b.size < file.size ? b : file); }, 'image/jpeg', 0.85);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); done(file); };
+      img.src = url;
+    });
+  }
   // Send the request to Bright Edge HQ (Tyler's app), photos included
   var HQ = 'https://hq.bigdaddydatacenter.com/api/leads';
   wiz.addEventListener('submit', function (e) {
@@ -610,10 +654,12 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
     fd.append('contact', state.contact || ''); fd.append('kind', state.type || ''); fd.append('service', state.service || '');
     fd.append('details', val('msg')); fd.append('location', val('loc')); fd.append('timeline', val('when'));
     fd.append('heard', val('hear')); fd.append('website', val('hp'));
-    var files = document.getElementById('photos').files;
-    for (var i = 0; i < files.length && i < 6; i++) fd.append('photos', files[i]);
+    var files = [].slice.call(document.getElementById('photos').files, 0, 6);
     btn.disabled = true; btn.textContent = files.length ? 'Sending photos…' : 'Sending…';
-    fetch(HQ, {method: 'POST', body: fd}).then(function (r) {
+    Promise.all(files.map(shrink)).then(function (photos) {
+      photos.forEach(function (p, i) { fd.append('photos', p, p === files[i] ? files[i].name : 'photo-' + (i + 1) + '.jpg'); });
+      return fetch(HQ, {method: 'POST', body: fd});
+    }).then(function (r) {
       return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || !j.ok) throw new Error(j.error || 'send'); });
     }).then(function () {
       document.getElementById('sentText').textContent = 'Thanks, ' + name + '! Tyler will ' +
