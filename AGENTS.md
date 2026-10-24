@@ -21,7 +21,7 @@ This repo is a client's public website, served as plain static files by GitHub P
 - The request form posts to the business's HQ app. Don't change its field names, its endpoint
   or the hidden honeypot field.
 - No new libraries, trackers, analytics or third-party embeds. Fonts come from Google Fonts only.
-- Buttons and the form ask for a call back, not an estimate (estimates live in the owner's own app).
+- Buttons and the form say "Request an estimate" (the owner's choice, Oct 24). The request reaches HQ; the estimate itself is still written in the owner's own app (Billdu).
 
 ## Done means
 Pages render, only intended files changed, and a PR description listing every file and how you checked it.
