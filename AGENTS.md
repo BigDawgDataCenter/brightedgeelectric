@@ -1,7 +1,7 @@
 # House rules for coding agents (Jules and friends)
 
 This repo is a client's public website, served as plain static files by GitHub Pages
-(index.html, privacy.html, accessibility.html, assets/). Every pull request is reviewed before merge.
+(index.html, about.html, faq.html, privacy.html, accessibility.html, assets/; every page uses assets/site.css, which has the light and dark themes). Every pull request is reviewed before merge.
 
 ## Before you submit
 - Open each page you changed and check it at 375px wide: no horizontal scroll, tap targets at least 44px.
