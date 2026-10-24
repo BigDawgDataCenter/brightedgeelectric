@@ -74,10 +74,31 @@
   </div>
 </div></section>
 
-<div class="values" aria-hidden="true"><div class="track">
-  <span>Excellence</span><span>Professionalism</span><span>Reliability</span><span>Attention to detail</span><span>Safety</span><span>Structure</span>
-  <span>Excellence</span><span>Professionalism</span><span>Reliability</span><span>Attention to detail</span><span>Safety</span><span>Structure</span>
-</div></div>
+<section class="owl-strip" aria-label="Licensed. Local. Done right."><div class="wrap">
+  <div class="owl-stage" aria-hidden="true">
+    <svg class="owl" viewBox="0 0 160 186"><path d="M47 52 L33 10 L66 40 Z" fill="#5b3f27"/><path d="M113 52 L127 10 L94 40 Z" fill="#5b3f27"/>
+<ellipse cx="80" cy="112" rx="54" ry="62" fill="#7a5534"/>
+<path d="M28 104 Q22 150 56 168 Q40 140 44 104 Z" fill="#5b3f27"/>
+<ellipse cx="80" cy="132" rx="34" ry="38" fill="#ead7b5"/>
+<path d="M64 120 l6 5 6-5 M84 120 l6 5 6-5 M74 134 l6 5 6-5 M64 148 l6 5 6-5 M84 148 l6 5 6-5" fill="none" stroke="#b8986a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30 74 Q30 36 80 38 Q130 36 130 74 Q130 106 80 108 Q30 106 30 74 Z" fill="#8a6440"/>
+<circle cx="60" cy="74" r="23" fill="#c9a274"/><circle cx="100" cy="74" r="23" fill="#c9a274"/>
+<path d="M66 100 Q80 112 94 100 Q80 106 66 100 Z" fill="#f7efe0"/>
+<circle cx="60" cy="74" r="15" fill="#fdb71c"/><circle cx="100" cy="74" r="15" fill="#fdb71c"/>
+<circle cx="61" cy="75" r="8" fill="#1b1209"/><circle cx="99" cy="75" r="8" fill="#1b1209"/>
+<circle cx="64" cy="71" r="2.6" fill="#fff"/><circle cx="102" cy="71" r="2.6" fill="#fff"/>
+<g class="owl-lids"><ellipse cx="60" cy="74" rx="16" ry="16" fill="#8a6440"/><ellipse cx="100" cy="74" rx="16" ry="16" fill="#8a6440"/></g>
+<path d="M45 60 Q56 50 70 54 M115 60 Q104 50 90 54" fill="none" stroke="#4a3220" stroke-width="5" stroke-linecap="round"/>
+<path d="M74 84 L80 98 L86 84 Q80 80 74 84 Z" fill="#3b2a1a"/>
+<path d="M46 44 Q80 6 114 44 Z" fill="#fdb71c"/><rect x="40" y="41" width="80" height="9" rx="4.5" fill="#e09e00"/>
+<rect x="74" y="16" width="12" height="27" rx="3" fill="#e09e00"/>
+<rect x="34" y="150" width="92" height="10" rx="4" fill="#044b76"/><rect x="74" y="148" width="12" height="14" rx="3" fill="#fdb71c"/>
+<g class="owl-wing"><path d="M132 104 Q140 150 104 168 Q120 140 116 104 Z" fill="#5b3f27"/></g>
+<path d="M60 172 l-6 8 M66 173 l0 9 M94 173 l0 9 M100 172 l6 8" stroke="#e0a33a" stroke-width="5" stroke-linecap="round"/></svg>
+    <div class="plate"><i class="spark"></i><span class="lever"></span></div>
+  </div>
+  <p class="owl-line"><span>Licensed.</span> <span>Local.</span> <span>Done right.</span></p>
+</div></section>
 
 <section id="services"><div class="wrap">
   <div class="section-head">
@@ -178,7 +199,7 @@
     </div>
 
     <div class="wstep" data-step="5">
-      <div class="sent"><div class="ic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m5 12 5 5L20 7"/></svg></div>
+      <div class="sent"><img class="owl-done" src="assets/owl.svg" alt="Watts the owl, giving a happy hoot">
         <h3>Request received!</h3><p style="color:var(--muted)" id="sentText">Thanks! Tyler will reach out soon.</p>
         <p class="fine">Need it sooner? Call <a href="tel:+12534293605">(253) 429-3605</a>.</p></div>
     </div>
@@ -219,6 +240,16 @@
 
 <script>
 (function () {
+  // Watts the owl: hold the "lights off" pose until the strip scrolls into view, then play once
+  (function () {
+    var strip = document.querySelector('.owl-strip');
+    if (!strip || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    strip.classList.add('ready');
+    function play() { strip.classList.add('play'); seen.disconnect(); }
+    var seen = new IntersectionObserver(function (entries) { if (entries[0].isIntersecting) play(); }, {threshold: 0.6});
+    seen.observe(strip);
+    setTimeout(play, 6000);  // never leave the lights off, even if the browser skips the scroll check
+  })();
   // Residential / Commercial switch
   function showPanel(id) {
     document.querySelectorAll('.switch button').forEach(function (t) { t.setAttribute('aria-pressed', String(t.dataset.panel === id)); });
