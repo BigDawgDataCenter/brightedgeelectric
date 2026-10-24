@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 186" role="img" aria-label="Watts, the Bright Edge Electric owl">
+<style>.owl-lids{display:none}</style>
+<path d="M47 52 L33 10 L66 40 Z" fill="#5b3f27"/><path d="M113 52 L127 10 L94 40 Z" fill="#5b3f27"/>
+<ellipse cx="80" cy="112" rx="54" ry="62" fill="#7a5534"/>
+<path d="M28 104 Q22 150 56 168 Q40 140 44 104 Z" fill="#5b3f27"/>
+<ellipse cx="80" cy="132" rx="34" ry="38" fill="#ead7b5"/>
+<path d="M64 120 l6 5 6-5 M84 120 l6 5 6-5 M74 134 l6 5 6-5 M64 148 l6 5 6-5 M84 148 l6 5 6-5" fill="none" stroke="#b8986a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30 74 Q30 36 80 38 Q130 36 130 74 Q130 106 80 108 Q30 106 30 74 Z" fill="#8a6440"/>
+<circle cx="60" cy="74" r="23" fill="#c9a274"/><circle cx="100" cy="74" r="23" fill="#c9a274"/>
+<path d="M66 100 Q80 112 94 100 Q80 106 66 100 Z" fill="#f7efe0"/>
+<circle cx="60" cy="74" r="15" fill="#fdb71c"/><circle cx="100" cy="74" r="15" fill="#fdb71c"/>
+<circle cx="61" cy="75" r="8" fill="#1b1209"/><circle cx="99" cy="75" r="8" fill="#1b1209"/>
+<circle cx="64" cy="71" r="2.6" fill="#fff"/><circle cx="102" cy="71" r="2.6" fill="#fff"/>
+<g class="owl-lids"><ellipse cx="60" cy="74" rx="16" ry="16" fill="#8a6440"/><ellipse cx="100" cy="74" rx="16" ry="16" fill="#8a6440"/></g>
+<path d="M45 60 Q56 50 70 54 M115 60 Q104 50 90 54" fill="none" stroke="#4a3220" stroke-width="5" stroke-linecap="round"/>
+<path d="M74 84 L80 98 L86 84 Q80 80 74 84 Z" fill="#3b2a1a"/>
+<path d="M46 44 Q80 6 114 44 Z" fill="#fdb71c"/><rect x="40" y="41" width="80" height="9" rx="4.5" fill="#e09e00"/>
+<rect x="74" y="16" width="12" height="27" rx="3" fill="#e09e00"/>
+<rect x="34" y="150" width="92" height="10" rx="4" fill="#044b76"/><rect x="74" y="148" width="12" height="14" rx="3" fill="#fdb71c"/>
+<g class="owl-wing"><path d="M132 104 Q140 150 104 168 Q120 140 116 104 Z" fill="#5b3f27"/></g>
+<path d="M60 172 l-6 8 M66 173 l0 9 M94 173 l0 9 M100 172 l6 8" stroke="#e0a33a" stroke-width="5" stroke-linecap="round"/>
+</svg>

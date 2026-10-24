@@ -319,3 +319,41 @@ nav.links a[aria-current],.mnav a[aria-current]{color:var(--gold)}
   .wizard{border:1px solid var(--line)}
 }
 
+
+
+/* Watts the owl (Oct 24): a great horned owl, native to King and Snohomish County, flips the lights on
+   once when the strip scrolls into view. Without JavaScript, or with "reduce motion", it just shows
+   the lit-up end state. The thank-you screen uses the same drawing (assets/owl.svg). */
+.owl-strip{background:var(--navy-deep);padding:22px 0;overflow:hidden;border-top:4px solid var(--gold);border-bottom:4px solid var(--gold)}
+.owl-strip .wrap{display:flex;align-items:center;justify-content:center;gap:26px;flex-wrap:wrap}
+.owl-stage{display:flex;align-items:flex-end;gap:6px}
+.owl{width:104px;height:121px;display:block}
+.owl .owl-lids{transform-origin:80px 58px;transform:scaleY(0)}
+.owl .owl-wing{transform-origin:122px 106px}
+.plate{position:relative;width:34px;height:52px;border-radius:7px;background:#f4f7fa;box-shadow:inset 0 0 0 2px #c9d6e0;margin-bottom:34px}
+.lever{position:absolute;left:12px;top:10px;width:10px;height:16px;border-radius:3px;background:var(--gold)}
+.spark{position:absolute;inset:-14px;border-radius:50%;border:3px dotted var(--gold);opacity:0}
+.owl-line{margin:0;font:700 clamp(22px,3.2vw,34px)/1.1 Kanit,sans-serif;letter-spacing:.3px;color:var(--gold)}
+.owl-line span{display:inline-block}
+.owl-strip.ready .owl{opacity:0;transform:translateY(40px)}
+.owl-strip.ready .lever{top:26px;background:#8aa3b8}
+.owl-strip.ready .owl-line span{color:#46647d}
+.owl-strip.play .owl{animation:owl-in .6s cubic-bezier(.2,.9,.3,1.2) forwards}
+.owl-strip.play .owl-wing{animation:owl-flip .5s ease-in-out .75s}
+.owl-strip.play .lever{animation:lever-up .18s ease-out .95s forwards}
+.owl-strip.play .spark{animation:spark .6s ease-out 1s}
+.owl-strip.play .owl-line span{animation:light-up .35s ease-out forwards}
+.owl-strip.play .owl-line span:nth-child(1){animation-delay:1.05s}
+.owl-strip.play .owl-line span:nth-child(2){animation-delay:1.25s}
+.owl-strip.play .owl-line span:nth-child(3){animation-delay:1.45s}
+.owl-strip.play .owl-lids{animation:blink 7s ease-in-out 2.4s infinite}
+@keyframes owl-in{to{opacity:1;transform:none}}
+@keyframes owl-flip{50%{transform:rotate(-38deg)}}
+@keyframes lever-up{to{top:10px;background:var(--gold)}}
+@keyframes spark{0%{opacity:1;transform:scale(.6)}100%{opacity:0;transform:scale(1.4)}}
+@keyframes light-up{0%{color:#46647d;transform:translateY(4px)}100%{color:var(--gold);transform:none}}
+@keyframes blink{0%,94%,100%{transform:scaleY(0)}97%{transform:scaleY(1)}}
+.sent .owl-done{width:96px;height:auto;margin:0 auto 12px}
+@media (max-width:640px){.owl-strip .wrap{gap:14px}.owl{width:78px;height:91px}.plate{width:28px;height:44px;margin-bottom:26px}
+  .lever{left:9px;width:10px;height:14px}.owl-strip.ready .lever{top:22px}.owl-line{text-align:center}}
+@media (prefers-reduced-motion:reduce){.owl-strip *{animation:none!important}}
